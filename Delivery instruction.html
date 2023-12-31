@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Seller</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: justify;
+    font-size: 25px;
+    position: relative; 
+}
+
+.nav a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f4f4f4;
+    transition: .3s;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+        main {
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #0b0b0b;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo{
+            width: 70%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        table,th,td{
+            Border:none;
+            text-align: center;
+            padding:10px;
+        }
+        footer a {
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .search-input {
+            box-sizing: border-box;
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('.img/searchicon.jpg'); 
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            padding: inherit;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #100f0f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(244, 205, 205, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: rgb(247, 240, 240);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: .4s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #b29c9c;
+            transition: .4s ease;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transition: .4s ease;
+        }
+        .product1{
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: rgba(250, 243, 248, 0.721);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            background: white;
+            border-radius: 7px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px gray;
+            transition: .4s ease;
+        }
+
+        input
+        {
+            width: 100%;
+            height: 100%;
+            color: rgb(14, 13, 13);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        i
+        {
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+            cursor: pointer;
+        }
+        .search:hover{
+            width: 400px;
+        }
+        .p1{
+            box-sizing: border-box;
+            border: 10px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: rgb(240, 175, 175);
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            text-align: left;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hoang Tang Sport Provider</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="./index.html"><b>Home</b></a>
+        <div class="dropdown">
+            <button class="dropbtn"><b>Places</b></button>
+                <div class="dropdown-content">
+                    <a href="#">District 1</a>
+                    <a href="#">District 3</a>
+                    <a href="#">District 4</a>
+                    <a href="#">District 5</a>
+                </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><b>Clothes</b></button>
+            <div class="dropdown-content">
+                <a href="#">Boy</a>
+                <a href="#">Girl</a>
+            </div>
+        </div>
+        <a href="#"><b>Shoes</b></a>
+        <a href="#"><b>Accessory</b></a>
+        <a href="#"><b>Contact us</b></a>
+        <form class="search">
+            <input type="text" placeholder="search..">
+            <i class='bx bx-search'></i>
+        </form>
+    </nav>
+    <main>
+    <p><b style="font-size: 35px;"><u>Delivery instruction</u></b></p>
+<div class="p1">
+   <p>Step 1: Visit the website and select the product you want to purchase</p>
+   <p>Step 2: Click on the product you want to buy, a pop up screen will appear with the following options</p>
+   <p>If you want to continue shopping: Click on continue shopping to choose to add products to the cart</p>
+   <p>If you want to view the cart to update products: Click view cart</p>
+   <p>If you want to order and pay for this product please click: Order and pay</p>
+   <p>Step 3: Select payment account information</p>
+   <p>If you already have an account, please enter your username, email and password in the section where you already have an account on the system.</p>
+   <p>If you do not have an account and want to register an account, please fill in your personal information to continue registering an account. Once you have an account, you will easily track your orders</p>
+   <p>Step 4: Fill in your information to receive your order, choose payment and shipping method for your order</p>
+   <p>Step 5: Review order information, fill in notes and submit order</p>
+   <p>After receiving your order, we will contact you by calling back to confirm your order and address.</p>
+   <p>Sincerely thank you.</p>
+</div> 
+
+</main>
+    
+    <footer>
+       <table>
+        <tr>
+            <th colspan="2">POLICY</th>
+            <th>INSTRUCTION</th>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#">Privacy Policy </a></td>
+            <td><a href="./Shopping guild.html">Shopping guide</a></td>
+            <td rowspan="7">
+                <img class="product1" src="img/logo1.png" alt="logo" style="height: auto; width: auto;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="./Shipping privacy.html">Shipping policy </a></td>
+            <td><a href="./Payment guild.html">Payment Guide</a></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="./Warranty Policy.html">Warranty Policy </a></td>
+            <td><a href="./Delivery instruction.html">Delivery instructions</a></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="./Return Policy.html">Return policy </a></td>
+            <td><a href="./Term of service.html">Terms of service</a></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="./Payment Policy.html">Payment policy </a></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
+        </tr>
+       </table>
+       <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

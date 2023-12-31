@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Seller</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: justify;
+    font-size: 25px;
+    position: relative; 
+}
+
+.nav a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f4f4f4;
+    transition: .3s;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+        main {
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #0b0b0b;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo{
+            width: 70%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        table,th,td{
+            Border:none;
+            text-align: center;
+            padding:10px;
+        }
+        footer a {
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .search-input {
+            box-sizing: border-box;
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('.img/searchicon.jpg'); 
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            padding: inherit;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #100f0f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(244, 205, 205, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: rgb(247, 240, 240);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: .4s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #b29c9c;
+            transition: .4s ease;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transition: .4s ease;
+        }
+        .product1{
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: rgba(250, 243, 248, 0.721);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 7px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px gray;
+            transition: .4s ease;
+        }
+
+        input
+        {
+            width: 100%;
+            height: 100%;
+            color: rgb(18, 18, 18);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        i
+        {
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+            cursor: pointer;
+        }
+        .search:hover{
+            width: 400px;
+        }
+        * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;
+border-radius: 8px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 4000px;
+  position: relative;
+  margin:auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 4s;
+  transition:ease;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+.welcome-message {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1 style="margin: 30px;text-align: center;">Hoang Tang Sport Provider</h1>
+        <div class="welcome-message" id="welcomeMessage"></div>
+    </header>
+
+    <nav class="nav">
+        <a href="./index2.html"><b>Home</b></a>
+        <div class="dropdown">
+            <button class="dropbtn"><b>Places</b></button>
+                <div class="dropdown-content">
+                    <a href="./District 1.html">District 1</a>
+                    <a href="./District 3.html">District 3</a>
+                    <a href="./District 4.html">District 4</a>
+                    <a href="./District 5.html">District 5</a>
+                </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><b>Clothes</b></button>
+            <div class="dropdown-content">
+                <a href="./Boy.html">Boy</a>
+                <a href="./Girl.html">Girl</a>
+            </div>
+        </div>
+        <a href="./Shoes.html"><b>Shoes</b></a>
+        <a href="./Accessory.html"><b>Accessory</b></a>
+        <a href="./Contact us.html"><b>Contact us</b></a>
+        <form class="search">
+            <input type="text" placeholder="Search..">
+            <i class='bx bx-search'></i>
+        </form>
+    </nav>
+    
+    <main>
+        <h2>Welcome to our Sports Provider</h2>
+    </main>
+    <section>
+        <div class="product">
+            <img src="/img/baseball.jpg" alt="Football Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="product">
+            <img src="/img/basketball.jpg" alt="Basketball Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="product">
+            <img  src="/img/swiming.jpg" alt="swiming Image" style="width: 100%; height: auto;">
+        </div>
+    </section>
+    <a href="https://zalo.me/YourZaloID"><img src="/img/zalo.jpg" target="_blank" style=" width: 60px; height:60px; border-radius: 45%; position: fixed;bottom: 20px;left: 20px;text-decoration: none;z-index: 999;">
+    </a>
+    <a href="https://messenger/YourMessenger"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/2048px-Facebook_Messenger_logo_2020.svg.png" target="_blank" style=" width: 60px; height:60px; border-radius: 45%; position: fixed;bottom: 100px;left: 20px;text-decoration: none;z-index: 999;">
+    </a>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="img/Picture1.2.png" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="/img/picture2.jpg" style="width: 100%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="img/picture3.jpg" style="width: 100%;">
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        
+        <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); 
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    
+    var username = localStorage.getItem('username');
+
+    
+    displayWelcomeMessage(username);
+});
+
+function displayWelcomeMessage(username) {
+    
+    if (username) {
+        
+        document.getElementById('welcomeMessage').innerHTML = "Welcome, " + username + "!";
+    }
+}
+        </script>
+    <footer>
+        <table>
+         <tr>
+             <th colspan="2">POLICY</th>
+             <th>INSTRUCTION</th>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Privacy.html">Privacy Policy </a></td>
+             <td><a href="./Shopping guild.html">Shopping guild</a></td>
+             <td rowspan="7">
+                 <img class="product1" src="img/logo1.png" alt="logo" style="height: auto; width: auto;">
+             </td>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Shipping privacy.html">Shipping policy </a></td>
+             <td><a href="./Payment guild.html">Payment Guide</a></td>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Warranty Policy.html">Warranty Policy </a></td>
+             <td><a href="./Delivery instruction.html">Delivery instructions</a></td>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Return Policy.html">Return policy </a></td>
+             <td><a href="./Term of service.html">Terms of service</a></td>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Payment Policy.html">Payment policy </a></td>
+         </tr>
+         <tr>
+             <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
+         </tr>
+        </table>
+        <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
+     </footer>
+
+</body>
+</html>

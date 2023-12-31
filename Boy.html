@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Clothes Seller</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: justify;
+    font-size: 25px;
+    position: relative; 
+}
+
+.nav a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f4f4f4;
+    transition: .3s;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+        main {
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .logo{
+            width: 70%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        table,th,td{
+            Border:none;
+            text-align: center;
+            padding:10px;
+        }
+        footer a {
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .search-input {
+            box-sizing: border-box;
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('.img/searchicon.jpg'); 
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            padding: inherit;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #100f0f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(244, 205, 205, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: rgb(247, 240, 240);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: .4s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #b29c9c;
+            transition: .4s ease;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transition: .4s ease;
+        }
+        .search
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 7px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px gray;
+            transition: .4s ease;
+        }
+
+        input
+        {
+            width: 100%;
+            height: 100%;
+            color: rgb(18, 18, 18);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        i
+        {
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+            cursor: pointer;
+        }
+        .search:hover{
+            width: 400px;
+        }
+        .product-box {
+    border: 1px solid #060606;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+.product-box img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.product-box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-box p {
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.price-filter {
+            margin-left: 20px;
+        }
+       
+.rentcost {
+    font-weight: bold;
+    color: #007bff; 
+    font-size: 18px; 
+    margin-top: 8px; 
+    text-align: center;
+}
+/* Add this CSS to your existing styles */
+.payment-form {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form h2 {
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.payment-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-form button:hover {
+    background-color: #0056b3;
+}
+.styled-select {
+        position: relative;
+        display: inline-block;
+    }
+
+    .styled-select select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 200px;
+    }
+
+    .styled-select select::-ms-expand {
+        display: none;
+    }
+
+    .styled-select::after {
+        content: '\25BC';
+        font-size: 12px;
+        color: #555;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+
+    .styled-select select option {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+    }
+    .center-container {
+   margin-left: 35%;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);  
+}
+
+.success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #4CAF50;  
+    border-radius: 8px;  
+    background-color: #f8f8f8;  
+    z-index: 999;  
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Hoang Tang Sport Provider</h1>
+        </header>
+    
+        <nav class="nav">
+            <a href="./index2.html"><b>Home</b></a>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Places</b></button>
+                    <div class="dropdown-content">
+                        <a href="./District 1.html">District 1</a>
+                        <a href="./District 3.html">District 3</a>
+                        <a href="./District 4.html">District 4</a>
+                        <a href="./District 5.html">District 5</a>
+                    </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Clothes</b></button>
+                <div class="dropdown-content">
+                    <a href="./Boy.html">Boy</a>
+                    <a href="./Girl.html">Girl</a>
+                </div>
+            </div>
+            <a href="./Shoes.html"><b>Shoes</b></a>
+            <a href="./Accessory.html"><b>Accessory</b></a>
+            <a href="./Contact us.html"><b>Contact us</b></a>
+            <form class="search">
+                <input type="text" placeholder="Search..">
+                <i class='bx bx-search'></i>
+            </form>
+        </nav>
+    
+        <main style=" display: flex; flex-wrap: wrap; justify-content: space-around;">
+            <div class="product-box" id="productao1">
+                <img src="img/aonam1.jpg" alt="Product Image">
+                <h3>ARSUXEO MS05 MEN'S SPORTS THERMAL SHIRT - STRETCHY - BREATHABLE</h3>
+                <p>Material: Poly + Spandex - A popular material for sportswear that makes the shirt more durable, faster drying and more breathable.</p>
+                <p>The shirt is suitable for many sports such as cycling, climbing, running...</p>
+                <p>Product price will vary depending on size and quantity</p>
+                <label for="size1" style="margin-right: 10px;">Select size:</label>
+    <select id="size1" name="size1" style="margin-right: 20px;">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <label for="soluong1" style="margin-right: 10px;">Select quantity:</label>
+    <select id="soluong1" name="soluong1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+                <p class="rentcost">250000đ</p>
+                <button class="center-container"onclick="showPaymentFormAo1(productao1)">Pay</button>
+            </div>
+            <div class="payment-form" id="paymentForm">
+                <h2>Payment Details</h2>
+            
+                <div class="styled-select">
+                    <label for="paymentOption">Select Payment Option:</label>
+                    <select id="paymentOption" name="paymentOption">
+                        <option value="creditCard">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="bankTransfer">Bank Transfer</option>
+                    </select>
+                </div>
+                <p>Total Amount: <span id="paymentAmount"></span></p>
+                
+                <button class="center-container" onclick="processPayment()">Complete Payment</button>
+            </div>
+            <div class="overlay" id="overlay"></div>
+            <div class="success-message" id="successMessage">
+                <span class="close-button" onclick="closeOverlay()">&times;</span>
+               <p>Congratulations on your successful payment! Your goods will be delivered in 2.3 days if you are in Ho Chi Minh City and 3.4 days if you are in other areas</p>
+            </div>
+            <div class="product-box" id="productao2">
+                <img src="img/aonam2.jpg" alt="Product Image">
+                <h3>ARSUXEO MS49 MEN'S RUNNING SHIRT - SUPER LIGHT - BREATHABLE</h3>
+                <p>Arxuseo men's running shirt is made entirely from specialized sports fabric. With the ability to absorb and drain sweat quickly, it keeps clothes from sticking to the skin when active. At the same time, it has an additional heat release feature, extremely suitable for hot summer days.</p>
+                <p>The shirt is suitable for many sports such as cycling, climbing, running...</p>
+                <p>Product price will vary depending on size and quantity</p>
+                <label for="size2" style="margin-right: 10px;">Select size:</label>
+                <select id="size2" name="size2" style="margin-right: 20px;">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <label for="soluong2" style="margin-right: 10px;">Select quantity:</label>
+    <select id="soluong2" name="soluong2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+                <p class="rentcost">249000đ</p>
+                <button class="center-container"onclick="showPaymentFormAo2(productao2)">Pay</button>
+            </div>
+           
+        </main>
+        <footer>
+            <table>
+             <tr>
+                 <th colspan="2">POLICY</th>
+                 <th>INSTRUCTION</th>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Privacy.html">Privacy Policy </a></td>
+                 <td><a href="./Shopping guild.html">Shopping guide</a></td>
+                 <td rowspan="7">
+                     <img class="product1" src="img/logo1.png" alt="logo" style="height: auto; width: auto;">
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Shipping privacy.html">Shipping policy </a></td>
+                 <td><a href="./Payment guild.html">Payment Guide</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Warranty Policy.html">Warranty Policy </a></td>
+                 <td><a href="./Delivery instruction.html">Delivery instructions</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Return Policy.html">Return policy </a></td>
+                 <td><a href="./Term of service.html">Terms of service</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Payment Policy.html">Payment policy </a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
+             </tr>
+            </table>
+            <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
+         </footer>
+         <script>
+            function showPaymentFormAo1(productao1) {
+                
+                var costPerProduct = 250000;
+                var selectedSize = document.getElementById('size1').value;
+                var selectedQuantity = parseInt(document.getElementById('soluong1').value);
+                var sizeMultiplier = getSizeMultiplier(selectedSize);
+                var totalAmount = costPerProduct * sizeMultiplier * selectedQuantity;
+            
+            document.querySelectorAll('.product-box').forEach(box => {
+                box.style.display = 'none';
+            });
+            document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+           
+            document.getElementById('paymentForm').style.display = 'block';
+        
+        }
+        function showPaymentFormAo2(productao2) {
+                
+                var costPerProduct = 249000;
+                var selectedSize = document.getElementById('size2').value;
+                var selectedQuantity = parseInt(document.getElementById('soluong2').value);
+                var sizeMultiplier = getSizeMultiplier(selectedSize);
+                var totalAmount = costPerProduct * sizeMultiplier * selectedQuantity;
+            
+            document.querySelectorAll('.product-box').forEach(box => {
+                box.style.display = 'none';
+            });
+            document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+           
+            document.getElementById('paymentForm').style.display = 'block';
+        
+        }
+        function getSizeMultiplier(size) {
+        
+        var sizeMultipliers = {
+            'XS': 0.8,
+            'S': 1.0,
+            'M': 1.2,
+            'L': 1.5,
+            'XL': 1.8,
+            'XXL': 2.0
+            
+        };
+
+        
+        return sizeMultipliers[size] || 1.0;
+    }
+        function processPayment() {
+            document.getElementById('overlay').style.display = 'block';
+    document.getElementById('successMessage').style.display = 'block';
+           
+    }
+    function closeOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'none';
+}
+
+    
+         </script>
+    </body>
+    

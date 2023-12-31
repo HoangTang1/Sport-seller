@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Clothes Seller</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: justify;
+    font-size: 25px;
+    position: relative; 
+}
+
+.nav a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f4f4f4;
+    transition: .3s;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+        main {
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .logo{
+            width: 70%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        table,th,td{
+            Border:none;
+            text-align: center;
+            padding:10px;
+        }
+        footer a {
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .search-input {
+            box-sizing: border-box;
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('.img/searchicon.jpg'); 
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            padding: inherit;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #100f0f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(244, 205, 205, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: rgb(247, 240, 240);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: .4s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #b29c9c;
+            transition: .4s ease;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transition: .4s ease;
+        }
+        .search
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 7px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px gray;
+            transition: .4s ease;
+        }
+
+        input
+        {
+            width: 100%;
+            height: 100%;
+            color: rgb(18, 18, 18);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        i
+        {
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+            cursor: pointer;
+        }
+        .search:hover{
+            width: 400px;
+        }
+        .product-box {
+    border: 1px solid #060606;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+.product-box img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.product-box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-box p {
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.price-filter {
+            margin-left: 20px;
+        }
+       
+.rentcost {
+    font-weight: bold;
+    color: #007bff; 
+    font-size: 18px; 
+    margin-top: 8px; 
+    text-align: center;
+}
+/* Add this CSS to your existing styles */
+.payment-form {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form h2 {
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.payment-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-form button:hover {
+    background-color: #0056b3;
+}
+.styled-select {
+        position: relative;
+        display: inline-block;
+    }
+
+    .styled-select select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 200px;
+    }
+
+    .styled-select select::-ms-expand {
+        display: none;
+    }
+
+    .styled-select::after {
+        content: '\25BC';
+        font-size: 12px;
+        color: #555;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+
+    .styled-select select option {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+    }
+    .center-container {
+   margin-left: 35%;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Hoang Tang Sport Provider</h1>
+        </header>
+    
+        <nav class="nav">
+            <a href="./index2.html"><b>Home</b></a>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Places</b></button>
+                    <div class="dropdown-content">
+                        <a href="./District 1.html">District 1</a>
+                        <a href="./District 3.html">District 3</a>
+                        <a href="./District 4.html">District 4</a>
+                        <a href="./District 5.html">District 5</a>
+                    </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Clothes</b></button>
+                <div class="dropdown-content">
+                    <a href="./Boy.html">Boy</a>
+                    <a href="./Girl.html">Girl</a>
+                </div>
+            </div>
+            <a href="./Shoes.html"><b>Shoes</b></a>
+            <a href="./Accessory.html"><b>Accessory</b></a>
+            <a href="./Contact us.html"><b>Contact us</b></a>
+            <form class="search">
+                <input type="text" placeholder="Search..">
+                <i class='bx bx-search'></i>
+            </form>
+        </nav>
+    
+        <main style=" display: flex; flex-wrap: wrap; justify-content: space-around;">
+            <div class="product-box" id="product11">
+                <img src="img/san11.jpg" alt="Product Image">
+                <h3>Thanh Tra Basketball Court (Saigon University)</h3>
+                <p>-Address: 273 An Duong Vuong, Ward 3, District 5 (Parking at the back gate on Nguyen Trai Street) Thanh Tra basketball court is located on the campus of Saigon University</p>
+                <p>-Scale: 1 indoor yard</p>
+                <p>Court surface: Basketball standard floor</p>
+                <label for="hours4">Select Hours:</label>
+                <select id="hours4" name="hours4">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">250000đ /Hour</p>
+                <button class="center-container"onclick="showPaymentForm11(product11)">Pay</button>
+            </div>
+            <div class="payment-form" id="paymentForm">
+                <h2>Payment Details</h2>
+            
+                <div class="styled-select">
+                    <label for="paymentOption">Select Payment Option:</label>
+                    <select id="paymentOption" name="paymentOption">
+                        <option value="creditCard">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="bankTransfer">Bank Transfer</option>
+                    </select>
+                </div>
+                <p>Total Amount: <span id="paymentAmount"></span></p>
+                
+                <button class="center-container" onclick="processPayment()">Complete Payment</button>
+            </div>
+            
+            <div class="product-box" id="product12">
+                <img src="img/san12.jpg" alt="Product Image">
+                <h3>Lam Son Sports Center basketball court</h3>
+                <p>-Scale: 2 yards with corrugated iron roofs</p>
+                <p>-Address: 320/1 Tran Binh Trong, Ward 4, District 5, Ho Chi Minh City</p>
+                <p>Court surface: PP carpet specialized for basketball courts</p>
+                <label for="hours1">Select Hours:</label>
+                <select id="hours1" name="hours1">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">303000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm12(product12)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product13">
+                <img src="img/san13.jpg" alt="Product Image">
+                <h3>Tinh Vo basketball court</h3>
+                <p>-Address: 736 Nguyen Trai, Ward 11, District 5</p>
+                <p>Scale: 1 indoor yard</p>
+                <p>Court surface: Simili rubber</p>
+                <label for="hours2">Select Hours:</label>
+                <select id="hours2" name="hours2">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">320000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm13(product13)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product14">
+                <img src="img/san14.jpg" alt="Product Image">
+                <h3>Lam Son football center field</h3>
+                <p>-This soccer field is located right in the center of District 5, among many different entertainment areas. In particular, it is located right in an area with good transportation infrastructure, very convenient for moving. In particular, after playing football at Lam Son stadium, people can easily go eat, drink or have fun at nearby addresses.</p>
+                <p>-Yard address: No. 320/1 Tran Binh Trong Street - Ward 4 - District 5 - HCMC.</p>
+                <label for="hours3">Select Hours:</label>
+                <select id="hours3" name="hours3">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">370000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm14(product14)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product15">
+                <img src="img/san15.jpeg" alt="Product Image">
+                <h3>Phong Son 1 Sports Center(for football)</h3>
+                <p>-This is also one of the famous football fields with a large area in District 5. Here, you can find both 3-person and 7-person fields.</p>
+                <p>-Phong Son 1 Stadium is open from 7am to 10pm daily</p>
+                <p>-Stadium address: No. 8 Nguyen Trai - Ward 5 - District 5 (Right near Saigon University).</p>
+                <label for="hours5">Select Hours:</label>
+                <select id="hours5" name="hours5">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">230000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm15(product15)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product16">
+                <img src="img/san16.jpeg" alt="Product Image">
+                <h3>Phong Son 2 Sports Center(for football)</h3>
+                <p>-Phong Son 2 Stadium is also often called Hung Vuong Football Stadium by young people. That's because the yard is located right next to Hung Vuong High School.</p>
+                <p>Yard address: No. 2 Nguyen Kim Street - Ward 12 - District 5.</p>
+                <label for="hours6">Select Hours:</label>
+                <select id="hours6" name="hours6">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">270000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm16(product16)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product17">
+                <img src="img/san17.jpeg" alt="Product Image">
+                <h3>District 5 Sports Center(for football)</h3>
+                <p>The football field of the Sports Center has a large area. Although the facilities are old, they are carefully cared for and new items are added regularly. Thanks to that, it still meets people's needs well when exercising.</p>
+                <p>Yard address: No. 1 Lao Tzu Street - Ward 11 - District 5.</p>
+                <label for="hours7">Select Hours:</label>
+                <select id="hours7" name="hours7">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">270000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm17(product17)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product18">
+                <img src="img/san18.jpeg" alt="Product Image">
+                <h3>Sports and Physical Training Stadium in District 5(for football)</h3>
+                <p>The football field of the sports training house is of quite good quality. In particular, this location is not known to many people so renting a yard is quite easy. Along with that, tenants will receive free drinking water while exercising.</p>
+                <p>Yard address: No. 235 Nguyen Van Cu Street - Ward 4 - District 5.</p>
+                <label for="hours8">Select Hours:</label>
+                <select id="hours8" name="hours8">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">280000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm18(product18)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product19">
+                <img src="img/san19.jpg" alt="Product Image">
+                <h3>Hung Vuong Football Stadium(for football)</h3>
+                <p>The stadium is located on the campus of Hung Vuong High School - District 5, with a canteen, parking space, and 10% discount for students.</p>
+                <p>Yard address: No. 2 Nguyen Kim, Ward 12, District 5, City. HCM</p>
+                <label for="hours9">Select Hours:</label>
+                <select id="hours9" name="hours8">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">250000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm19(product19)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product20">
+                <img src="img/san20.jpg" alt="Product Image">
+                <h3>Ly Phong Football Stadium District 5(for football)</h3>
+                <p>The field surface is considered high quality, worth experiencing in mini courts. Good lighting and drainage system.</p>
+                <p>Yard address: No. 78 An Duong Vuong Street - Ward 9 - District 5.</p>
+                <label for="hours10">Select Hours:</label>
+                <select id="hours10" name="hours10">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">250000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm20(product20)">Pay</button>
+            
+            </div>
+        </main>
+        <footer>
+            <table>
+             <tr>
+                 <th colspan="2">POLICY</th>
+                 <th>INSTRUCTION</th>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Privacy.html">Privacy Policy </a></td>
+                 <td><a href="./Shopping guild.html">Shopping guide</a></td>
+                 <td rowspan="7">
+                     <img class="product1" src="img/logo1.png" alt="logo" style="height: auto; width: auto;">
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Shipping privacy.html">Shipping policy </a></td>
+                 <td><a href="./Payment guild.html">Payment Guide</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Warranty Policy.html">Warranty Policy </a></td>
+                 <td><a href="./Delivery instruction.html">Delivery instructions</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Return Policy.html">Return policy </a></td>
+                 <td><a href="./Term of service.html">Terms of service</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Payment Policy.html">Payment policy </a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
+             </tr>
+            </table>
+            <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
+         </footer>
+         <script>
+            function showPaymentForm11(product11) {
+                
+                 var costPerHour = 250000;
+                var selectedHours = parseInt(document.getElementById('hours4').value); 
+                 var totalAmount = selectedHours * costPerHour;
+            
+            document.querySelectorAll('.product-box').forEach(box => {
+                box.style.display = 'none';
+            });
+            document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+           
+            document.getElementById('paymentForm').style.display = 'block';
+        
+        }
+        function showPaymentForm12(product12) {
+                
+                var costPerHour = 303000;
+               var selectedHours = parseInt(document.getElementById('hours1').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm13(product13) {
+                
+                var costPerHour = 320000;
+               var selectedHours = parseInt(document.getElementById('hours2').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm14(product14) {
+                
+                var costPerHour = 370000;
+               var selectedHours = parseInt(document.getElementById('hours3').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm15(product15) {
+                
+                var costPerHour = 230000;
+               var selectedHours = parseInt(document.getElementById('hours5').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm16(product16) {
+                
+                var costPerHour = 270000;
+               var selectedHours = parseInt(document.getElementById('hours6').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm17(product17) {
+                
+                var costPerHour = 270000;
+               var selectedHours = parseInt(document.getElementById('hours7').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm18(product18) {
+                
+                var costPerHour = 280000;
+               var selectedHours = parseInt(document.getElementById('hours8').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm19(product19) {
+                
+                var costPerHour = 250000;
+               var selectedHours = parseInt(document.getElementById('hours9').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm20(product20) {
+                
+                var costPerHour = 250000;
+               var selectedHours = parseInt(document.getElementById('hours10').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+        function processPayment() {
+            
+            alert('Payment processed successfully!');
+            var randomCode = generateRandomCode();
+        alert('Payment processed successfully! Save this code and give it to the security ' + randomCode);
+        }
+        
+        function generateRandomCode() {
+
+        return Math.floor(1000 + Math.random() * 9000);
+    }
+    
+    
+         </script>
+    </body>
+    

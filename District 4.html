@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Clothes Seller</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1em;
+    text-align: justify;
+    font-size: 25px;
+    position: relative; 
+}
+
+.nav a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f4f4f4;
+    transition: .3s;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+}
+
+.nav a:hover::before {
+    width: 100%;
+}
+        main {
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .logo{
+            width: 70%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        table,th,td{
+            Border:none;
+            text-align: center;
+            padding:10px;
+        }
+        footer a {
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .search-input {
+            box-sizing: border-box;
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('.img/searchicon.jpg'); 
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            padding: inherit;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #100f0f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(244, 205, 205, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: rgb(247, 240, 240);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: .4s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #b29c9c;
+            transition: .4s ease;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transition: .4s ease;
+        }
+        .search
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 7px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px gray;
+            transition: .4s ease;
+        }
+
+        input
+        {
+            width: 100%;
+            height: 100%;
+            color: rgb(18, 18, 18);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        i
+        {
+            font-size: 20px;
+            color: rgb(11, 11, 11);
+            cursor: pointer;
+        }
+        .search:hover{
+            width: 400px;
+        }
+        .product-box {
+    border: 1px solid #060606;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+.product-box img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.product-box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-box p {
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.price-filter {
+            margin-left: 20px;
+        }
+       
+.rentcost {
+    font-weight: bold;
+    color: #007bff; 
+    font-size: 18px; 
+    margin-top: 8px; 
+    text-align: center;
+}
+/* Add this CSS to your existing styles */
+.payment-form {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form h2 {
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.payment-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-form button:hover {
+    background-color: #0056b3;
+}
+.styled-select {
+        position: relative;
+        display: inline-block;
+    }
+
+    .styled-select select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 200px;
+    }
+
+    .styled-select select::-ms-expand {
+        display: none;
+    }
+
+    .styled-select::after {
+        content: '\25BC';
+        font-size: 12px;
+        color: #555;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+
+    .styled-select select option {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+    }
+    .center-container {
+   margin-left: 35%;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Hoang Tang Sport Provider</h1>
+        </header>
+    
+        <nav class="nav">
+            <a href="./index2.html"><b>Home</b></a>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Places</b></button>
+                    <div class="dropdown-content">
+                        <a href="./District 1.html">District 1</a>
+                        <a href="./District 3.html">District 3</a>
+                        <a href="./District 4.html">District 4</a>
+                        <a href="./District 5.html">District 5</a>
+                    </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><b>Clothes</b></button>
+                <div class="dropdown-content">
+                    <a href="./Boy.html">Boy</a>
+                    <a href="./Girl.html">Girl</a>
+                </div>
+            </div>
+            <a href="./Shoes.html"><b>Shoes</b></a>
+            <a href="./Accessory.html"><b>Accessory</b></a>
+            <a href="./Contact us.html"><b>Contact us</b></a>
+            <form class="search">
+                <input type="text" placeholder="Search..">
+                <i class='bx bx-search'></i>
+            </form>
+        </nav>
+    
+        <main style=" display: flex; flex-wrap: wrap; justify-content: space-around;">
+            <div class="product-box" id="product8">
+                <img src="img/san8.jpg" alt="Product Image">
+                <h3>District 4 Sports Center basketball court</h3>
+                <p>-Address: 120-122 Khanh Hoi, Ward 3, District 4, Ho Chi Minh City, Vietnam</p>
+                <p>-Scale: 1 indoor yard</p>
+                <p>Court surface: Basketball standard floor</p>
+                <label for="hours4">Select Hours:</label>
+                <select id="hours4" name="hours4">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">220000đ /Hour</p>
+                <button class="center-container"onclick="showPaymentForm8(product8)">Pay</button>
+            </div>
+            <div class="payment-form" id="paymentForm">
+                <h2>Payment Details</h2>
+            
+                <div class="styled-select">
+                    <label for="paymentOption">Select Payment Option:</label>
+                    <select id="paymentOption" name="paymentOption">
+                        <option value="creditCard">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="bankTransfer">Bank Transfer</option>
+                    </select>
+                </div>
+                <p>Total Amount: <span id="paymentAmount"></span></p>
+                
+                <button class="center-container" onclick="processPayment()">Complete Payment</button>
+            </div>
+            
+            <div class="product-box" id="product9">
+                <img src="img/san9.jpg" alt="Product Image">
+                <h3>Khanh Hoi Club Stadium</h3>
+                <p>-The yard has the advantage of being large and having a high level of infrastructure. In particular, Khanh Hoi Stadium also has many accompanying services. Such as renting clothes, competition balls or selling soft drinks to customers.</p>
+                <p>Address: No. 9 - Street 48 - Ward 3 - District 4.</p>
+                <label for="hours1">Select Hours:</label>
+                <select id="hours1" name="hours1">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">300000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm9(product9)">Pay</button>
+            
+            </div>
+            <div class="product-box" id="product10">
+                <img src="img/san10.jpg" alt="Product Image">
+                <h3>Kizciti Football Stadium</h3>
+                <p>-This football field is considered to be of quite high quality with a beautiful location. Located right on Hoang Dieu Street, it makes moving and traveling easier for everyone.</p>
+                <p>Currently, Kizciti has 4 high-quality 5-a-side soccer fields. The stadium rental price here is also very affordable, so many people trust and choose it as a place to play.</p>
+                <p>Address: Street 48 - Ward 5 - District 4.</p>
+                <label for="hours2">Select Hours:</label>
+                <select id="hours2" name="hours2">
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                </select>
+                <p class="rentcost">320000đ /Hour</p>
+                <button class="center-container" onclick="showPaymentForm10(product10)">Pay</button>
+            
+            </div>
+        </main>
+        <footer>
+            <table>
+             <tr>
+                 <th colspan="2">POLICY</th>
+                 <th>INSTRUCTION</th>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Privacy.html">Privacy Policy </a></td>
+                 <td><a href="./Shopping guild.html">Shopping guide</a></td>
+                 <td rowspan="7">
+                     <img class="product1" src="img/logo1.png" alt="logo" style="height: auto; width: auto;">
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Shipping privacy.html">Shipping policy </a></td>
+                 <td><a href="./Payment guild.html">Payment Guide</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Warranty Policy.html">Warranty Policy </a></td>
+                 <td><a href="./Delivery instruction.html">Delivery instructions</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Return Policy.html">Return policy </a></td>
+                 <td><a href="./Term of service.html">Terms of service</a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Payment Policy.html">Payment policy </a></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
+             </tr>
+            </table>
+            <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
+         </footer>
+         <script>
+            function showPaymentForm8(product8) {
+                
+                 var costPerHour = 220000;
+                var selectedHours = parseInt(document.getElementById('hours4').value); 
+                 var totalAmount = selectedHours * costPerHour;
+            
+            document.querySelectorAll('.product-box').forEach(box => {
+                box.style.display = 'none';
+            });
+            document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+           
+            document.getElementById('paymentForm').style.display = 'block';
+        
+        }
+        function showPaymentForm9(product9) {
+                
+                var costPerHour = 300000;
+               var selectedHours = parseInt(document.getElementById('hours1').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+       function showPaymentForm10(product10) {
+                
+                var costPerHour = 320000;
+               var selectedHours = parseInt(document.getElementById('hours2').value); 
+                var totalAmount = selectedHours * costPerHour;
+           
+           document.querySelectorAll('.product-box').forEach(box => {
+               box.style.display = 'none';
+           });
+           document.getElementById('paymentAmount').textContent = totalAmount + 'đ';
+          
+           document.getElementById('paymentForm').style.display = 'block';
+       
+       }
+        function processPayment() {
+            
+            alert('Payment processed successfully!');
+            var randomCode = generateRandomCode();
+        alert('Payment processed successfully! Save this code and give it to the security ' + randomCode);
+        }
+        
+        function generateRandomCode() {
+
+        return Math.floor(1000 + Math.random() * 9000);
+    }
+    
+    
+         </script>
+    </body>
+    

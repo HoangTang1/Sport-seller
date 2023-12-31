@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('img/background2.jpeg'); 
+            background-size: cover;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<form id="registrationForm">
+    <h2>Register</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="register()">Register</button>
+</form>
+<script>
+        function register() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var address = document.getElementById("address").value;
+    if (username.trim() === '' || password.trim() === '' || address.trim() === '') {
+        alert("Please enter username, password, and address.");
+        return;
+    }
+
+    saveUserDataLocally(username, password,address);
+}
+function saveUserDataLocally(username, password) {
+    
+    if (typeof(Storage) !== "undefined") {
+       
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('address', address);
+
+        alert("User data saved locally.");
+        window.location.href = "./index2.html";
+    } else {
+        alert("Sorry, your browser does not support Web Storage. Please try a different browser.");
+    }
+}
+</script>
+</body>
+</html>

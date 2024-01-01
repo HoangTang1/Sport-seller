@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
+    <title>Contact Us Form</title>
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             margin: 0;
@@ -14,7 +14,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-image: url('img/background1.jpg'); 
+            background-image: url('img/background2.jpeg'); 
             background-size: cover;
         }
 
@@ -23,14 +23,12 @@
         }
 
         form {
-            max-width: 500px;
-            margin: auto;
+            max-width: 200000px;
+            margin:auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: grid;
-            gap: 10px;
         }
 
         label {
@@ -41,6 +39,7 @@
         input {
             width: 100%;
             padding: 8px;
+            margin-bottom: 16px;
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -49,16 +48,26 @@
         button {
             background-color: #007bff;
             color: #fff;
-            padding: 10px 16px;
+            padding: 10px 16px ;
+            margin-bottom: 30px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
-            width: 100%;
+            width: 90%;
+            margin-top: 30px;
         }
 
         button:hover {
             background-color: #0056b3;
+        }
+        p.goBack {
+            background-color: #ccc;
+            color: #000;
+        }
+
+        p:hover {
+          color: #007bff;
         }
         .overlay {
     display: none;
@@ -95,41 +104,51 @@
     </style>
 </head>
 <body>
-    <form id="changePasswordForm">
-        <h2>Change Password</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <form id="Contactform">
+        <h2>Contact Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="newPassword">New Password:</label>
-        <input type="password" id="newPassword" name="newPassword" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
 
-        <button type="button" onclick="changePassword()">Change Password</button>
+        <div style="display: flex; gap: 8px;">
+            <p style="text-align: center; margin-top: 35px; cursor: pointer;" onclick="goBack()">&#8592; Go Back</p>
+            <button type="button" class="submit" onclick="saveData()">Submit</button>
+        </div>
     </form>
-    <div id="overlay" class="overlay">
+     
+     <div id="overlay" class="overlay">
 
         <div class="modal"id="modal">
             <span class="close" onclick="hideModal()">&times;</span>
-            <p>Your pasword have been changed.</p>
+            <p>Your form has been sent. We will respond after a few hours.</p>
     <script>
-        function changePassword() {
-            var username = document.getElementById("username").value;
-            var email = document.getElementById("email").value;
-            var newPassword = document.getElementById("newPassword").value;
-            var storedUsername = localStorage.getItem('username');
-            var storedEmail = localStorage.getItem('email');
-            
-            if (username === storedUsername || email === storedEmail) {
-                localStorage.setItem('password', newPassword);
-                showModal();
-            }
-            else{
-                alert("Invalid username or email. Please try again.");
+        function goBack() {
+            window.location.href = "./index2.html";
         }
-    }
-    function showModal() {
+    
+    function saveData() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+            
+            if (name.trim() === '' || email.trim() === ''||message.trim()==='') {
+                alert("Please enter all the required information");
+                return;
+            }
+
+            
+            var storedUsername = localStorage.getItem('name');
+            var storedPassword = localStorage.getItem('email');
+            var storedPassword = localStorage.getItem('message');
+            showModal();
+
+}
+function showModal() {
             document.getElementById("overlay").style.display = "block";
             document.getElementById('modal').style.display = 'block';
         }

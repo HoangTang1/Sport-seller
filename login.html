@@ -77,8 +77,6 @@
         <p>Don't have an account? <a href="register.html">Register</a></p>
         <p>Forget password? <a href="changepassword.html">Change Password</a></p>
     </form>
-
-
     <script>
        
        function login() {
@@ -90,17 +88,18 @@
                 return;
             }
 
-            // Check if the entered username and password match the stored values
+            
             var storedUsername = localStorage.getItem('username');
             var storedPassword = localStorage.getItem('password');
 
             if (username === storedUsername && password === storedPassword) {
-                // Redirect to index2.html if the credentials are correct
+                
                 window.location.href = "./index2.html";
             } else {
                 alert("Invalid username or password. Please try again.");
             }
         }
+
     </script>
 </body>
 </html>

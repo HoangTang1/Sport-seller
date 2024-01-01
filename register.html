@@ -120,22 +120,23 @@
         function register() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
-    if (username.trim() === '' || password.trim() === '' || address.trim() === '') {
-        alert("Please enter username, password, and address.");
+    if (username.trim() === '' || password.trim() === '' || address.trim() === ''||email.trim()==='') {
+        alert("Please enter username, password, email, and address.");
         return;
     }
 
-    saveUserDataLocally(username, password,address);
+    saveUserDataLocally(username, password,address,email);
 }
-function saveUserDataLocally(username, password) {
+function saveUserDataLocally(username, password,email) {
     
     if (typeof(Storage) !== "undefined") {
        
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
         localStorage.setItem('address', address);
-
+        localStorage.setItem('email',email)
         showModal();
        
     } else {

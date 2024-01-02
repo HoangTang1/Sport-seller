@@ -123,16 +123,17 @@
     var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
     var storedUsername = localStorage.getItem('username');
-    var storedPassword = localStorage.getItem('password');
-
+    var storedEmail = localStorage.getItem('email');
+    var storedAddress = localStorage.getItem('address');
+    var storedPassword= localStorage.getItem('password')
     if (username.trim() === '' || password.trim() === '' || address.trim() === ''||email.trim()==='') {
         alert("Please enter username, password, email, and address.");
         return;
     }
-    if (username === storedUsername) {
-                alert("Username already exists! Please try another")
+    if (username === storedUsername||password===storedPassword||email===storedEmail||address===storedAddress) {
+                alert("These infomation already exists! Please try another")
     }
-            else{
+    else{
                 saveUserDataLocally(username, password,address,email);
             }
 }

@@ -122,12 +122,19 @@
     var password = document.getElementById("password").value;
     var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
+    var storedUsername = localStorage.getItem('username');
+    var storedPassword = localStorage.getItem('password');
+
     if (username.trim() === '' || password.trim() === '' || address.trim() === ''||email.trim()==='') {
         alert("Please enter username, password, email, and address.");
         return;
     }
-
-    saveUserDataLocally(username, password,address,email);
+    if (username === storedUsername) {
+                alert("Username already exists! Please try another")
+    }
+            else{
+                saveUserDataLocally(username, password,address,email);
+            }
 }
 function saveUserDataLocally(username, password,email) {
     

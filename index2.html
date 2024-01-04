@@ -357,20 +357,18 @@ border-radius: 8px;
         }
         
         document.addEventListener("DOMContentLoaded", function() {
-    
     var username = localStorage.getItem('username');
-
-    
     displayWelcomeMessage(username);
 });
 
 function displayWelcomeMessage(username) {
-    
-    if (username) {
-        
-        document.getElementById('welcomeMessage').innerHTML = "Welcome, " + username + "!";
-    }
+    var welcomeMessageElement = document.getElementById('welcomeMessage');
+
+if (username && typeof username === 'string') {
+    welcomeMessageElement.innerHTML = "Welcome, " + username + "!";
 }
+}
+
         </script>
     <footer>
         <table>
@@ -403,7 +401,7 @@ function displayWelcomeMessage(username) {
          <tr>
              <td colspan="2"><a href="./Usage Rules.html">Usage rules</a></td>
          </tr>
-        </table>
+        </table>    
         <p style="text-align: center;padding: bottom 5px;">&copy; 2023 HoangTang Production. All rights reserved.</p>
      </footer>
 

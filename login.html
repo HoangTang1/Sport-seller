@@ -82,22 +82,24 @@
        function login() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            
+
             if (username.trim() === '' || password.trim() === '') {
                 alert("Please enter both username and password.");
                 return;
             }
 
-            
-            var storedUsername = localStorage.getItem('username');
-            var storedPassword = localStorage.getItem('password');
+            var storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-            if (username === storedUsername && password === storedPassword) {
-                
+            var userFound = storedUsers.find(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (userFound) {
                 window.location.href = "./index2.html";
             } else {
                 alert("Invalid username or password. Please try again.");
             }
+            localStorage.setItem('username',  String(username));
         }
 
     </script>

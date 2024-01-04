@@ -122,33 +122,34 @@
     var password = document.getElementById("password").value;
     var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
-    var storedUsername = localStorage.getItem('username');
-    var storedEmail = localStorage.getItem('email');
-    var storedAddress = localStorage.getItem('address');
-    var storedPassword= localStorage.getItem('password')
     if (username.trim() === '' || password.trim() === '' || address.trim() === ''||email.trim()==='') {
         alert("Please enter username, password, email, and address.");
         return;
     }
-    if (username === storedUsername||password===storedPassword||email===storedEmail||address===storedAddress) {
-                alert("These infomation already exists! Please try another")
-    }
-    else{
-                saveUserDataLocally(username, password,address,email);
-            }
-}
-function saveUserDataLocally(username, password,email) {
+    var storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
     
-    if (typeof(Storage) !== "undefined") {
-       
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-        localStorage.setItem('address', address);
-        localStorage.setItem('email',email)
-        showModal();
-       
+    var userExists = storedUsers.some(function(user) {
+        return user.username === username || user.email === email;
+    });
+
+    if (userExists) {
+        alert("This username or email already exists! Please try another.");
     } else {
-        alert("Sorry, your browser does not support Web Storage. Please try a different browser.");
+      
+        var newUser = {
+            username: username,
+            password: password,
+            email: email,
+            address: address
+        };
+
+        storedUsers.push(newUser);
+
+        
+        localStorage.setItem('users', JSON.stringify(storedUsers));
+        localStorage.setItem('username', String(username));
+        showModal();
     }
 }
 function showModal() {

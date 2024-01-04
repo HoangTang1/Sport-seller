@@ -16,9 +16,11 @@
         header {
             background-color: #333;
             color: #fff;
-            padding: 1em 0;
+            padding: 1em;
             text-align: center;
-            align-items: center;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
         }
 
         nav {
@@ -255,6 +257,22 @@ border-radius: 8px;
     font-size: 25px;
     position: relative;
     }
+    header a {
+            color: #0b0b0b;
+            text-decoration: none; /* Bỏ gạch dưới */
+            padding: 10px;
+            text-align: justify;
+            font-size: 20px;
+            background-color: #f4f4f4;
+            margin: 30px;
+            text-justify: auto;
+            border-radius: 8px;
+            transition: background-color 0.3s; 
+        }
+
+        header a:hover {
+            background-color: #5bc0de; 
+        }
 </style>
 </head>
 <body>
@@ -262,6 +280,7 @@ border-radius: 8px;
     <header>
         <h1 style="margin: 30px;text-align: center;">Hoang Tang Sport Provider</h1>
         <div class="welcome-message" id="welcomeMessage"></div>
+        <a href="./index.html"><b>Logout</b></a>
     </header>
 
     <nav class="nav">
@@ -286,8 +305,8 @@ border-radius: 8px;
         <a href="./Accessory.html"><b>Accessory</b></a>
         <a href="./Contact us.html"><b>Contact us</b></a>
         <form class="search">
-            <input type="text" placeholder="Search..">
-            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search.." id="searchInput">
+            <i class='bx bx-search' onclick="searchProducts()"></i>
         </form>
     </nav>
     
@@ -368,7 +387,23 @@ if (username && typeof username === 'string') {
     welcomeMessageElement.innerHTML = "Welcome, " + username + "!";
 }
 }
+function searchProducts() {
+        var input = document.getElementById('searchInput');
+        var searchQuery = input.value.toLowerCase();
 
+        
+        if (searchQuery.includes('places') || searchQuery.includes('địa điểm')||searchQuery.includes('sân')||searchQuery.includes('place to rent')||searchQuery.includes('sân quận 1')||searchQuery.includes('places to play sport in district 1')||searchQuery.includes('place to rent in district 1')) {
+            window.location.href = './District 1.html';
+        } else if (searchQuery.includes('giày') || searchQuery.includes('shoes')) {
+            window.location.href = './Shoes.html';
+        } else if(searchQuery.includes('phụ kiện') || searchQuery.includes('accessory')||searchQuery.includes('đồ bảo vệ')||searchQuery.includes('phụ kiện thể thao')||searchQuery.includes('phụ kiện')||searchQuery.includes('đồng hồ thể thao')||searchQuery.includes('đồng hồ')||searchQuery.includes('chai nước chạy bộ')){
+              window.location.href='./Accessory.html'  
+        }else if (searchQuery.includes('quần áo nam thể thao') || searchQuery.includes('sportswear for men') || searchQuery.includes('quần áo thể thao nam') || searchQuery.includes('men\'s sportswear') || searchQuery.includes('thể thao cho nam')) {
+        window.location.href = './Boy.html';
+        } else if (searchQuery.includes('quần áo nữ thể thao') || searchQuery.includes('sportswear for women') || searchQuery.includes('quần áo thể thao nữ') || searchQuery.includes('women\'s sportswear') || searchQuery.includes('thể thao cho nữ')) {
+        window.location.href = './Girl.html';
+    }
+    }
         </script>
     <footer>
         <table>

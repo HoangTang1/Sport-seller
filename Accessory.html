@@ -322,7 +322,53 @@ button:hover {
     font-size: 24px;
     cursor: pointer;
 }
+.sort-bar {
+    background-color: #f0f0f0;
+    padding: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%; 
+    margin: auto;
+    border-radius: 15%;
+    border: 2px solid #ccc;
+}
 
+.sort-dropdown {
+    margin-right: 10px;
+    border-radius: 10%;
+    border: 2px solid #ccc;;
+}
+.sort-dropdown select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white; 
+    appearance: none; 
+}
+
+
+.sort-dropdown select::after {
+    content: '\25BC'; 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+
+.sort-dropdown select::-moz-focus-inner {
+    border: 0;
+}
+
+
+.sort-dropdown select:hover,
+.sort-dropdown select:focus {
+    border-color: #4CAF50; 
+    outline: none;
+}
 
     </style>
     </head>
@@ -353,11 +399,20 @@ button:hover {
             <a href="./Accessory.html"><b>Accessory</b></a>
             <a href="./Contact us.html"><b>Contact us</b></a>
             <form class="search">
-                <input type="text" placeholder="Search..">
-                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search.." id="searchInput">
+                <i class='bx bx-search' onclick="searchProducts()"></i>
             </form>
         </nav>
-    
+        <div class="sort-container">
+            <div class="sort-bar">
+                <label for="sortCriteria">Sort by:</label>
+                <select id="sortCriteria" class="sort-dropdown">
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                </select>
+                <button onclick="sortProducts()">Sort</button>
+            </div>
+            </div>
         <main style=" display: flex; flex-wrap: wrap; justify-content: space-around;">
             <div class="product-box" id="productphukien1">
                 <img src="img/phukien1.jpg" alt="Product Image">
@@ -617,7 +672,62 @@ button:hover {
     document.getElementById('successMessage').style.display = 'none';
     window.location.href = './Accessory.html';
 }
+function sortProducts() {
+    const sortCriteria = document.getElementById('sortCriteria').value;
 
+    if (sortCriteria === 'priceAsc') {
+        sortProductsByPrice(true);
+    } else if (sortCriteria === 'priceDesc') {
+        sortProductsByPrice(false); 
+    }
+}
+
+function sortProductsByPrice(ascending) {
+    const productBoxes = document.querySelectorAll('.product-box');
+    const productArray = Array.from(productBoxes);
+
+    productArray.sort((a, b) => {
+        const priceA = parseInt(a.querySelector('.rentcost').innerText.replace('đ', ''), 10);
+        const priceB = parseInt(b.querySelector('.rentcost').innerText.replace('đ', ''), 10);
+
+        
+        return ascending ? priceA - priceB : priceB - priceA;
+    });
+
+   
+    productBoxes.forEach(box => {
+        box.remove();
+    });
+
+    
+    const mainContainer = document.querySelector('main');
+    productArray.forEach(product => {
+        mainContainer.appendChild(product);
+    });
+}
+function searchProducts() {
+        var input = document.getElementById('searchInput');
+        var searchQuery = input.value.toLowerCase();
+
+        
+        if (searchQuery.includes('places') || searchQuery.includes('địa điểm')||searchQuery.includes('sân')||searchQuery.includes('place to rent')||searchQuery.includes('sân quận 1')||searchQuery.includes('places to play sport in district 1')||searchQuery.includes('place to rent in district 1')) {
+            window.location.href = './District 1.html';
+        } else if (searchQuery.includes('giày') || searchQuery.includes('shoes')) {
+            window.location.href = './Shoes.html';
+        } else if(searchQuery.includes('phụ kiện') || searchQuery.includes('accessory')||searchQuery.includes('đồ bảo vệ')||searchQuery.includes('phụ kiện thể thao')||searchQuery.includes('phụ kiện')||searchQuery.includes('đồng hồ thể thao')||searchQuery.includes('đồng hồ')||searchQuery.includes('chai nước chạy bộ')){
+              window.location.href='./Accessory.html'  
+        }else if (searchQuery.includes('quần áo nam thể thao') || searchQuery.includes('sportswear for men') || searchQuery.includes('quần áo thể thao nam') || searchQuery.includes('men\'s sportswear') || searchQuery.includes('thể thao cho nam')) {
+        window.location.href = './Boy.html';
+        } else if (searchQuery.includes('quần áo nữ thể thao') || searchQuery.includes('sportswear for women') || searchQuery.includes('quần áo thể thao nữ') || searchQuery.includes('women\'s sportswear') || searchQuery.includes('thể thao cho nữ')) {
+        window.location.href = './Girl.html';
+        }else if (searchQuery.includes('places') || searchQuery.includes('địa điểm')||searchQuery.includes('sân')||searchQuery.includes('place to rent')||searchQuery.includes('sân quận 3')||searchQuery.includes('places to play sport in district 3')||searchQuery.includes('place to rent in district 3')) {
+            window.location.href = './District 3.html';
+        }else if (searchQuery.includes('places') || searchQuery.includes('địa điểm')||searchQuery.includes('sân')||searchQuery.includes('place to rent')||searchQuery.includes('sân quận 4')||searchQuery.includes('places to play sport in district 4')||searchQuery.includes('place to rent in district 4')) {
+            window.location.href = './District 4.html';
+        }else if (searchQuery.includes('places') || searchQuery.includes('địa điểm')||searchQuery.includes('sân')||searchQuery.includes('place to rent')||searchQuery.includes('sân quận 5')||searchQuery.includes('places to play sport in district 5')||searchQuery.includes('place to rent in district 5')) {
+            window.location.href = './District 5.html';
+        }
+    }
     
          </script>
     </body>

@@ -157,6 +157,41 @@ function showModal() {
             document.getElementById("overlay").style.display = "none";
             window.location.href = './index2.html';
         }
-    </script>
+        <!-- Thêm đoạn mã sau vào phần head của file HTML -->
+    function saveData() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+            alert("Please enter all the required information");
+            return;
+        }
+
+        
+        const userId = "o79OrhJ5-BBZHR9tz";
+        
+        const templateId = "template_gr8sivk";
+
+        
+        emailjs.init(userId);
+
+        
+        emailjs.send("default_service", templateId, {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function(response) {
+            console.log("Email sent successfully:", response);
+            showModal();
+        }, function(error) {
+            console.log("Email failed to send:", error);
+            alert("An error occurred while processing your request.");
+        });
+    }
+</script>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </body>
 </html>

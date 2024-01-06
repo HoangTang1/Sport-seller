@@ -117,7 +117,7 @@
 
         <div style="display: flex; gap: 8px;">
             <p style="text-align: center; margin-top: 35px; cursor: pointer;" onclick="goBack()">&#8592; Go Back</p>
-            <button type="button" class="submit" onclick="saveData()">Submit</button>
+            <button type="button" class="submit" onclick="submitForm()">Submit</button>
         </div>
     </form>
      
@@ -131,7 +131,7 @@
             window.location.href = "./index2.html";
         }
     
-    function saveData() {
+    function submitForm() {
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
@@ -139,16 +139,12 @@
             if (name.trim() === '' || email.trim() === ''||message.trim()==='') {
                 alert("Please enter all the required information");
                 return;
-            }
-
-            
-            var storedUsername = localStorage.getItem('name');
-            var storedPassword = localStorage.getItem('email');
-            var storedPassword = localStorage.getItem('message');
+    }
+            sendDatatoemail(name,email,message);
+            sendConfirmationEmail(name,email);
             showModal();
-
 }
-function showModal() {
+    function showModal() {
             document.getElementById("overlay").style.display = "block";
             document.getElementById('modal').style.display = 'block';
         }
@@ -157,51 +153,45 @@ function showModal() {
             document.getElementById("overlay").style.display = "none";
             window.location.href = './index2.html';
         }
-    function saveData() {
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-            alert("Please enter all the required information");
-            return;
-        }
-
-        
+        function sendDatatoemail(name,email,message){
         const userId = "o79OrhJ5-BBZHR9tz";
         
         const templateId = "template_gr8sivk";
-
-        const confirmationTemplateId = "template_avqyr5q";
 
         
         emailjs.init(userId);
 
         
-        emailjs.send("default_service", templateId, {
+         emailjs.send("default_service", templateId, {
             name: name,
-            email: email,
+           email: email,
             message: message
         })
-        .then(function(response) {
-            console.log("Email sent successfully:", response);
-            showModal();
+         .then(function(response) {
+             console.log("Email sent successfully:", response);
         }, function(error) {
             console.log("Email failed to send:", error);
-            alert("An error occurred while processing your request.");
+             alert("An error occurred while processing your request.");
         });
-        emailjs.send("default_service", confirmationTemplateId, {
-            to_name: name,
-            to_email: email
-        })
-        .then(function(confirmationResponse) {
+     }
+    function sendConfirmationEmail(name, email) {
+    const userId = "o79OrhJ5-BBZHR9tz";
+    const confirmationTemplateId = "template_avqyr5q";
+
+    emailjs.init(userId);
+
+    const emailParams = {
+        to_name: name,
+        to_email: email
+    };
+
+    emailjs.send("default_service", confirmationTemplateId, emailParams)
+        .then(function (confirmationResponse) {
             console.log("Confirmation email sent successfully:", confirmationResponse);
-            showModal();
-        }, function(confirmationError) {
+        }, function (confirmationError) {
             console.log("Confirmation email failed to send:", confirmationError);
-            showModal();
         });
-    }
+}
 </script>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>

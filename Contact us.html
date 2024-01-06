@@ -172,6 +172,8 @@ function showModal() {
         
         const templateId = "template_gr8sivk";
 
+        const confirmationTemplateId = "template_avqyr5q";
+
         
         emailjs.init(userId);
 
@@ -187,6 +189,17 @@ function showModal() {
         }, function(error) {
             console.log("Email failed to send:", error);
             alert("An error occurred while processing your request.");
+        });
+        emailjs.send("default_service", confirmationTemplateId, {
+            to_name: name,
+            to_email: email
+        })
+        .then(function(confirmationResponse) {
+            console.log("Confirmation email sent successfully:", confirmationResponse);
+            showModal();
+        }, function(confirmationError) {
+            console.log("Confirmation email failed to send:", confirmationError);
+            showModal();
         });
     }
 </script>
